@@ -8,7 +8,7 @@
 
 * Source files are located in the `build` folder.
 * Demo files can be found in the `demo` folder.
-* Final versions of the source files can be found in the `boiler` folder.
+* Final versions of the source files can be found in the `worf` folder.
 
 ---
 
@@ -18,24 +18,31 @@
 ```bash
 $ git clone https://github.com/registerguard/grunt-boiler.git
 ```
-2. Install grunt globally (if you haven't yet):  
+
+1. Install grunt globally (if you haven't yet):  
 ```bash
 $ npm install -g grunt-cli
 ```
-3. Go inside `grunt-boiler/worf/build` folder and install Node dependencies:  
+
+1. Go inside `grunt-boiler/worf/build` folder and install Node dependencies:  
 ```bash
 $ cd grunt-boiler/worf/build && npm install
 ```
-4. Make sure you that you have grunt installed by testing:
+
+1. Make sure you that you have grunt installed by testing:
 ```bash
 grunt -version
 ```
-5) Now simply run `grunt` to generate JS and CSS in folder `worf`:  
+
+1. Now simply run `grunt` to generate JS and CSS in folder `worf`:  
 ```bash
 $ grunt
 ```
-6. Optionally, run `grunt watch` to automatically regenerate build files when you change files in `src/`.
-7. **Bonus:** Install the [LiveReload](http://livereload.com) browser plugin to automatically reload your demo page when Grunt regenerates a new build.
+
+1. **Optional:** Run `$ grunt watch` to automatically regenerate build files when you change files in `src/`.
+
+1. **Bonus:** Install the [LiveReload](http://livereload.com) browser plugin to automatically reload your demo page when Grunt regenerates a new build.
+
 ---
 
 #### DEMO
