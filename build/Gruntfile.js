@@ -6,31 +6,31 @@ module.exports = function(grunt) {
 	
 	grunt.initConfig({
 		
-		pkg: grunt.file.readJSON('package.json'),
+		pkg : grunt.file.readJSON('package.json'),
 		
 		/*----------------------------------( META )----------------------------------*/
 		
-		meta: {
+		meta : {
 			
-			banner_long: '/**\n' +
-			             ' * <%= pkg.title || pkg.name %>\n' +
-			             '<%= pkg.description ? " * " + pkg.description + "\\n" : "" %>' +
-			             ' *\n' +
-			             '<%= pkg.author.name ? " * @author " + pkg.author.name + "\\n" : "" %>' +
-			             '<%= pkg.author.url ? " * @link " + pkg.author.url + "\\n" : "" %>' +
-			             '<%= pkg.homepage ? " * @docs " + pkg.homepage + "\\n" : "" %>' +
-			             ' * @copyright Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>.\n' +
-			             '<%= pkg.licenses ? " * @license Released under the " + _.pluck(pkg.licenses, "type").join(", ") + ".\\n" : "" %>' +
-			             '<%= pkg.version ? " * @version " + pkg.version + "\\n" : "" %>' +
-			             ' * @date <%= grunt.template.today("yyyy/mm/dd") %>\n' +
-			             ' */\n\n',
+			banner_long : '/**\n' +
+			              ' * <%= pkg.title || pkg.name %>\n' +
+			              '<%= pkg.description ? " * " + pkg.description + "\\n" : "" %>' +
+			              ' *\n' +
+			              '<%= pkg.author.name ? " * @author " + pkg.author.name + "\\n" : "" %>' +
+			              '<%= pkg.author.url ? " * @link " + pkg.author.url + "\\n" : "" %>' +
+			              '<%= pkg.homepage ? " * @docs " + pkg.homepage + "\\n" : "" %>' +
+			              ' * @copyright Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>.\n' +
+			              '<%= pkg.licenses ? " * @license Released under the " + _.pluck(pkg.licenses, "type").join(", ") + ".\\n" : "" %>' +
+			              '<%= pkg.version ? " * @version " + pkg.version + "\\n" : "" %>' +
+			              ' * @date <%= grunt.template.today("yyyy/mm/dd") %>\n' +
+			              ' */\n\n',
 			
-			banner_short: '/*! ' +
-			              '<%= pkg.title || pkg.name %>' +
-			              '<%= pkg.version ? " v" + pkg.version : "" %>' +
-			              '<%= pkg.licenses ? " | " + _.pluck(pkg.licenses, "type").join(", ") : "" %>' +
-			              '<%= pkg.homepage ? " | " + pkg.homepage : "" %>' +
-			              ' */'
+			banner_short : '/*! ' +
+			               '<%= pkg.title || pkg.name %>' +
+			               '<%= pkg.version ? " v" + pkg.version : "" %>' +
+			               '<%= pkg.licenses ? " | " + _.pluck(pkg.licenses, "type").join(", ") : "" %>' +
+			               '<%= pkg.homepage ? " | " + pkg.homepage : "" %>' +
+			               ' */'
 			
 		},
 		
@@ -73,15 +73,15 @@ module.exports = function(grunt) {
 		 * @see http://www.jshint.com/docs/
 		 */
 		
-		jshint: {
+		jshint : {
 			
-			options: {
+			options : {
 				
-				jshintrc: '.jshintrc'
+				jshintrc : '.jshintrc'
 				
 			},
 			
-			init: [
+			init : [
 				
 				'./Gruntfile.js',
 				'./src/jquery.<%= pkg.name %>.js'
@@ -123,17 +123,17 @@ module.exports = function(grunt) {
 		 * @see http://lisperator.net/uglifyjs/
 		 */
 		
-		uglify: {
+		uglify : {
 			
-			target: {
+			target : {
 				
-				options: {
+				options : {
 					
-					banner: '<%= meta.banner_short %>'
+					banner : '<%= meta.banner_short %>'
 					
 				},
 				
-				files: {
+				files : {
 					
 					'../<%= pkg.name %>/jquery.<%= pkg.name %>.min.js': ['./src/jquery.<%= pkg.name %>.js']
 					
@@ -151,18 +151,18 @@ module.exports = function(grunt) {
 		 * @see https://github.com/gruntjs/grunt-contrib-concat
 		 */
 		
-		concat: {
+		concat : {
 			
-			options: {
+			options : {
 				
-				banner: '<%= meta.banner_long %>'
+				banner : '<%= meta.banner_long %>'
 				
 			},
 			
-			dist: {
+			dist : {
 				
-				src: ['./src/jquery.<%= pkg.name %>.js'],
-				dest: '../<%= pkg.name %>/jquery.<%= pkg.name %>.js'
+				src : ['./src/jquery.<%= pkg.name %>.js'],
+				dest : '../<%= pkg.name %>/jquery.<%= pkg.name %>.js'
 				
 			}
 			
