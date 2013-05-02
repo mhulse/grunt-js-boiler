@@ -24,14 +24,15 @@ $ git clone https://github.com/registerguard/grunt-boiler.git
 $ npm install -g grunt-cli
 ```
 
-1. Go inside `grunt-boiler/worf/build` folder and install Node dependencies:  
+1. Go inside `grunt-boiler/build` folder and install Node dependencies:  
 ```bash
-$ cd grunt-boiler/worf/build && npm install
+$ cd grunt-boiler/build
+$ npm install
 ```
 
 1. Make sure you that you have grunt installed by testing:
 ```bash
-grunt -version
+$ grunt -version
 ```
 
 1. Now simply run `grunt` to generate JS and CSS in folder `worf`:  
