@@ -40,7 +40,7 @@ $ grunt -version
 $ grunt
 ```
 
-1. **Optional:** Run `$ grunt watch` to automatically regenerate build files when you change files in `src/`.
+1. **Optional:** Run `$ grunt watch` to automatically regenerate build files when you change files in `src/` or `demo/` folders.
 
 1. **Bonus:** Install the [LiveReload](http://feedback.livereload.com/knowledgebase/articles/86242) browser plugin to automatically reload your demo page when Grunt regenerates a new build (I'm using [Sublime Text 2](http://www.sublimetext.com/) and [LiveReload for Sublime Text 2](https://github.com/dz0ny/LiveReload-sublimetext2)).
 
