@@ -1,6 +1,6 @@
-# Grunt boiler.
+# Grunt Boiler.
 
-### Starting point for [Grunt.js](http://gruntjs.com/) projects/repositories.
+### A starting point for [Grunt.js](http://gruntjs.com/) projects/repositories.
 
 ---
 
