@@ -6,7 +6,7 @@
 
 #### ABOUT
 
-* The example source file, `build/src/jquery.worf.js`, is meant to illustrate how one might use Grunt to build a jQuery plugin.
+* The example source file, `build/src/jquery.worf.js`, is meant to illustrate how one might use [Grunt](http://gruntjs.com/) to build a jQuery plugin.
 * Build-generated versions of the above source file can be found in the `worf/` folder:
     * `jquery.worf.js`: Original source file with an added [banner comment](http://gruntjs.com/getting-started#an-example-gruntfile).
     * `jquery.worf.min.js`: Uglified/minified version with an added "short" banner comment.
@@ -37,7 +37,7 @@ $ cd grunt-boiler/build
 $ npm install
 ```
 
-1. Now simply run `grunt` to generate JS and CSS in into the `/worf` folder:  
+1. Now simply run `grunt` to generate build versions into the `/worf` folder:  
 ```bash
 $ grunt
 ```
