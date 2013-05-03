@@ -18,8 +18,9 @@
 
 #### BUILD
 
-1. **Mac user?** Install [Homebrew](http://mxcl.github.io/homebrew/) and then run `$ brew install node` (sorry [MacPorts](http://www.macports.org/) users, you're on your own). **Windows user?** [Install Node](http://nodejs.org/download/).
-    * **Related:** [Brew Node NPM Grunt tips](https://github.com/registerguard/registerguard.github.com/wiki/Brew-Node-NPM-Grunt-tips)
+1. **Mac user?** Install [Homebrew](http://mxcl.github.io/homebrew/) and then run `$ brew install node` (sorry [MacPorts](http://www.macports.org/) users, you're on your own).  
+**Windows user?** [Install Node](http://nodejs.org/download/).  
+**Tips?** [Brew Node NPM Grunt tips](https://github.com/registerguard/registerguard.github.com/wiki/Brew-Node-NPM-Grunt-tips)
 
 1. Clone repository to your local machine:  
 ```bash
