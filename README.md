@@ -37,7 +37,7 @@ $ cd grunt-boiler/build
 $ npm install
 ```
 
-1. Now simply run `grunt` to generate JS and CSS in folder `worf`:  
+1. Now simply run `grunt` to generate JS and CSS in into the `/worf` folder:  
 ```bash
 $ grunt
 ```
