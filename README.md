@@ -10,9 +10,9 @@
 * Build-generated versions of the above source file can be found in `worf/`:
     * `jquery.worf.js`: Original source file with an added [banner comment](http://gruntjs.com/getting-started#an-example-gruntfile).
     * `jquery.worf.min.js`: Uglified/minified version with an added "short" banner comment.
-* An example demo file, `index.html`, can be found in the `/demo`; this file links to `worf/jquery.worf.min.js` and is meant to illustrate how one might setup a demo page for their plugin code.
+* An example demo file, `index.html`, can be found in `demo/`; this file links to `worf/jquery.worf.min.js` and is meant to illustrate how one might setup a demo page for their plugin code.
 
-**Note:** My local development workflow consists of [Sublime Text 2](http://www.sublimetext.com/) with the [ST2 Live Reload plugin](https://github.com/dz0ny/LiveReload-sublimetext2), [Firefox](http://www.mozilla.org/en-US/firefox/new/) with the [Live Reload browser extension](http://feedback.livereload.com/knowledgebase/articles/86242) installed and [XAMPP](http://www.apachefriends.org/en/xampp.html) as my Apache server with `/demo` loaded in Firefox via a spoofed URI of `git.local/...` (details here: [Mac](https://github.com/registerguard/registerguard.github.com/wiki/XAMPP%3A-Mac)/[Windows](https://github.com/registerguard/registerguard.github.com/wiki/XAMPP%3A-Windows)).
+**Note:** My local development workflow consists of [Sublime Text 2](http://www.sublimetext.com/) with the [ST2 Live Reload plugin](https://github.com/dz0ny/LiveReload-sublimetext2), [Firefox](http://www.mozilla.org/en-US/firefox/new/) with the [Live Reload browser extension](http://feedback.livereload.com/knowledgebase/articles/86242) installed and [XAMPP](http://www.apachefriends.org/en/xampp.html) as my Apache server with `demo/` loaded in Firefox via a spoofed URI of `git.local/...` (details here: [Mac](https://github.com/registerguard/registerguard.github.com/wiki/XAMPP%3A-Mac)/[Windows](https://github.com/registerguard/registerguard.github.com/wiki/XAMPP%3A-Windows)).
 
 ---
 
@@ -38,7 +38,7 @@ $ cd grunt-boiler/build
 $ npm install
 ```
 
-1. Now simply run `grunt` to generate build versions into `/worf`:  
+1. Now simply run `grunt` to generate build versions into `worf/`:  
 ```bash
 $ grunt
 ```
