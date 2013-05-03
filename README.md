@@ -7,12 +7,12 @@
 #### ABOUT
 
 * The example source file, `build/src/jquery.worf.js`, is meant to illustrate how one might use [Grunt](http://gruntjs.com/) to build a jQuery plugin.
-* Build-generated versions of the above source file can be found in the `worf/` folder:
+* Build-generated versions of the above source file can be found in `worf/`:
     * `jquery.worf.js`: Original source file with an added [banner comment](http://gruntjs.com/getting-started#an-example-gruntfile).
     * `jquery.worf.min.js`: Uglified/minified version with an added "short" banner comment.
-* An example demo file, `index.html`, can be found in the `demo` folder; this file links to `worf/jquery.worf.min.js` and is meant to illustrate how one might setup a demo page for their plugin code.
+* An example demo file, `index.html`, can be found in the `/demo`; this file links to `worf/jquery.worf.min.js` and is meant to illustrate how one might setup a demo page for their plugin code.
 
-**Note:** My local development workflow consists of [Sublime Text 2](http://www.sublimetext.com/) with the [ST2 Live Reload plugin](https://github.com/dz0ny/LiveReload-sublimetext2), [Firefox](http://www.mozilla.org/en-US/firefox/new/) with the [Live Reload browser extension](http://feedback.livereload.com/knowledgebase/articles/86242) installed and [XAMPP](http://www.apachefriends.org/en/xampp.html) as my Apache server with the demo folder loaded in Firefox via a spoofed URI of `git.local/...` (details here: [Mac](https://github.com/registerguard/registerguard.github.com/wiki/XAMPP%3A-Mac)/[Windows](https://github.com/registerguard/registerguard.github.com/wiki/XAMPP%3A-Windows)).
+**Note:** My local development workflow consists of [Sublime Text 2](http://www.sublimetext.com/) with the [ST2 Live Reload plugin](https://github.com/dz0ny/LiveReload-sublimetext2), [Firefox](http://www.mozilla.org/en-US/firefox/new/) with the [Live Reload browser extension](http://feedback.livereload.com/knowledgebase/articles/86242) installed and [XAMPP](http://www.apachefriends.org/en/xampp.html) as my Apache server with `/demo` loaded in Firefox via a spoofed URI of `git.local/...` (details here: [Mac](https://github.com/registerguard/registerguard.github.com/wiki/XAMPP%3A-Mac)/[Windows](https://github.com/registerguard/registerguard.github.com/wiki/XAMPP%3A-Windows)).
 
 ---
 
@@ -32,18 +32,18 @@ $ git clone https://github.com/registerguard/grunt-boiler.git
 $ npm install -g grunt-cli
 ```
 
-1. Go inside `grunt-boiler/build` folder and install project dependencies:  
+1. Next, `cd` to `grunt-boiler/build` and install project dependencies:  
 ```bash
 $ cd grunt-boiler/build
 $ npm install
 ```
 
-1. Now simply run `grunt` to generate build versions into the `/worf` folder:  
+1. Now simply run `grunt` to generate build versions into `/worf`:  
 ```bash
 $ grunt
 ```
 
-1. **Optional:** Run `$ grunt watch` to automatically regenerate build files when you change files in `build/src/` or `demo/` folders.
+1. **Optional:** Run `$ grunt watch` to automatically regenerate build files when you modify `build/src/jquery.worf.js` or anything in `demo/`.
 
 1. **Bonus:** Install the [LiveReload](http://feedback.livereload.com/knowledgebase/articles/86242) browser plugin to automatically reload your demo page when Grunt regenerates a new build (I'm using [Sublime Text 2](http://www.sublimetext.com/) and [LiveReload for Sublime Text 2](https://github.com/dz0ny/LiveReload-sublimetext2)).
 
