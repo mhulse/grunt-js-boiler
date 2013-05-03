@@ -32,9 +32,9 @@ $ git clone https://github.com/registerguard/grunt-boiler.git
 $ npm install -g grunt-cli
 ```
 
-1. Next, `cd` to `grunt-boiler/build` and install project dependencies:  
+1. Next, `cd` to `grunt-boiler/build/` and install project dependencies:  
 ```bash
-$ cd grunt-boiler/build
+$ cd grunt-boiler/build/
 $ npm install
 ```
 
