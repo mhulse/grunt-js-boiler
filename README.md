@@ -8,8 +8,8 @@
 
 * The example source file, `build/src/jquery.worf.js`, is meant to illustrate how one might use [Grunt](http://gruntjs.com/) to build a jQuery plugin.
 * Build-generated versions, of the above source file, can be found in `worf/`:
-    * `jquery.worf.js`: Original source file with an added [banner comment](http://gruntjs.com/getting-started#an-example-gruntfile).
-    * `jquery.worf.min.js`: Uglified/minified version with an added "short" banner comment.
+	* `jquery.worf.js`: Original source file with an added [banner comment](http://gruntjs.com/getting-started#an-example-gruntfile).
+	* `jquery.worf.min.js`: Uglified/minified version with an added "short" banner comment.
 * An example demo file, `index.html`, can be found in `demo/`; this file links to `worf/jquery.worf.min.js` and is meant to illustrate how one might setup a [demo page](http://registerguard.github.io/grunt-boiler/demo/) for their plugin code.
 
 ## Build
