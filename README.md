@@ -10,7 +10,7 @@
 * Build-generated versions, of the above source file, can be found in `worf/`:
 	* `jquery.worf.js`: Original source file with an added [banner comment](http://gruntjs.com/getting-started#an-example-gruntfile).
 	* `jquery.worf.min.js`: Uglified/minified version with an added "short" banner comment.
-* An example demo file, `index.html`, can be found in `demo/`; this file links to `worf/jquery.worf.min.js` and is meant to illustrate how one might setup a [demo page](http://registerguard.github.io/grunt-boiler/demo/) for their plugin code.
+* An example demo file, `index.html`, can be found in `demo/`; this file links to `worf/jquery.worf.min.js` and is meant to illustrate how one might setup a [demo page](http://mhulse.github.io/grunt-boiler/demo/) for their plugin code.
 
 ## Build
 
@@ -21,7 +21,7 @@
 1. Clone repository to your local machine:
 
  ```bash
- $ git clone https://github.com/registerguard/grunt-boiler.git
+ $ git clone https://github.com/mhulse/grunt-boiler.git
  ```
 
 1. Install Grunt's command line interface (CLI) globally:
@@ -53,7 +53,7 @@
 
 #### LEGAL
 
-Copyright &copy; 2013 [Micky Hulse](http://hulse.me)/[The Register-Guard](http://registerguard.com)
+Copyright &copy; 2013 [Micky Hulse](http://mhulse.com)
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:
 
