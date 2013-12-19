@@ -3,10 +3,10 @@
   "name": "worf",
   "description": "Nice Legs... for a human.",
   "version": "1.0.0",
-  "homepage": "https://github.com/registerguard/grunt-boiler",
+  "homepage": "https://github.com/mhulse/grunt-boiler",
   "repository": {
     "type": "git",
-    "url": "git://github.com/registerguard/grunt-boiler.git"
+    "url": "git://github.com/mhulse/grunt-boiler.git"
   },
   "author": {
     "name": "Micky Hulse",
