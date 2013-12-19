@@ -1,4 +1,5 @@
-/*global module:false */
+/* jslint es3: false */
+/* global module:false */
 
 module.exports = function(grunt) {
 	
@@ -6,9 +7,29 @@ module.exports = function(grunt) {
 	
 	grunt.initConfig({
 		
+		/*----------------------------------( PACKAGE )----------------------------------*/
+		
+		/**
+		 * The `package.json` file belongs in the root directory of your project,
+		 * next to the `Gruntfile`, and should be committed with your project
+		 * source. Running `npm install` in the same folder as a `package.json`
+		 * file will install the correct version of each dependency listed therein.
+		 *
+		 * Install project dependencies with `npm install` (or `npm update`).
+		 *
+		 * @see http://gruntjs.com/getting-started#package.json
+		 * @see https://npmjs.org/doc/json.html
+		 */
+		
 		pkg : grunt.file.readJSON('package.json'),
 		
-		/*----------------------------------( META )----------------------------------*/
+		/*----------------------------------( BANNERS )----------------------------------*/
+		
+		/**
+		 * Short and long banners.
+		 *
+		 * @see http://gruntjs.com/getting-started#an-example-gruntfile
+		 */
 		
 		meta : {
 			
@@ -40,8 +61,6 @@ module.exports = function(grunt) {
 		 * Run predefined tasks whenever watched file patterns are added, changed
 		 * or deleted.
 		 *
-		 * $ grunt watch
-		 *
 		 * @see https://github.com/gruntjs/grunt-contrib-watch
 		 */
 		
@@ -52,24 +71,23 @@ module.exports = function(grunt) {
 				files : [
 					
 					'./src/jquery.<%= pkg.name %>.js',
-					'../demo/**/*'
+					'../demo/**/*',
 					
 				],
 				
-				tasks : ['default']
+				tasks : ['default'],
 				
 			}
 			
 		},
 		
-		/*----------------------------------( PREFLIGHT )----------------------------------*/
+		/*----------------------------------( JSHINT )----------------------------------*/
 		
 		/**
 		 * Validate files with JSHint.
 		 *
-		 * @see http://www.jshint.com/
 		 * @see https://github.com/gruntjs/grunt-contrib-jshint
-		 * @see https://github.com/jshint/jshint/blob/master/src/stable/jshint.js
+		 * @see http://www.jshint.com/
 		 * @see http://www.jshint.com/docs/
 		 */
 		
@@ -77,20 +95,20 @@ module.exports = function(grunt) {
 			
 			options : {
 				
-				jshintrc : '.jshintrc'
+				jshintrc : '.jshintrc', // Defined options and globals.
 				
 			},
 			
-			init : [
+			all : [
 				
 				'./Gruntfile.js',
-				'./src/jquery.<%= pkg.name %>.js'
+				'./src/jquery.<%= pkg.name %>.js',
 				
-			]
+			],
 			
 		},
 		
-		/*----------------------------------( 01 )----------------------------------*/
+		/*----------------------------------( CLEAN )----------------------------------*/
 		
 		/**
 		 * Clean files and folders.
@@ -102,19 +120,19 @@ module.exports = function(grunt) {
 			
 			options : {
 				
-				force : true // Sketchy!
+				force : true, // Allows for deletion of folders outside current working dir (CWD). Use with caution.
 				
 			},
 			
-			dist : [
+			all : [
 				
-				'../<%= pkg.name %>/**/*'
+				'../<%= pkg.name %>/**/*',
 				
-			]
+			],
 			
 		},
 		
-		/*----------------------------------( 02 )----------------------------------*/
+		/*----------------------------------( UGLIFY )----------------------------------*/
 		
 		/**
 		 * Minify files with UglifyJS.
@@ -129,48 +147,58 @@ module.exports = function(grunt) {
 				
 				options : {
 					
-					banner : '<%= meta.banner_short %>'
+					banner : '<%= meta.banner_short %>',
 					
 				},
 				
 				files : {
 					
-					'../<%= pkg.name %>/jquery.<%= pkg.name %>.min.js': ['./src/jquery.<%= pkg.name %>.js']
+					'../<%= pkg.name %>/jquery.<%= pkg.name %>.min.js': [
+						
+						'./src/jquery.<%= pkg.name %>.js',
+						
+					],
 					
-				}
+				},
 				
-			}
+			},
 			
 		},
 		
-		/*----------------------------------( 03 )----------------------------------*/
+		/*----------------------------------( CONCAT )----------------------------------*/
 		
 		/**
 		 * Concatenate files.
 		 *
 		 * @see https://github.com/gruntjs/grunt-contrib-concat
+		 * @see https://github.com/gruntjs/grunt-contrib-concat/pull/25
 		 */
 		
 		concat : {
 			
 			options : {
 				
-				banner : '<%= meta.banner_long %>'
+				banner : '<%= meta.banner_long %>',
 				
 			},
 			
-			dist : {
+			files : {
 				
-				src : ['./src/jquery.<%= pkg.name %>.js'],
-				dest : '../<%= pkg.name %>/jquery.<%= pkg.name %>.js'
+				src : [
+					
+					'./src/jquery.<%= pkg.name %>.js',
+					
+				],
 				
-			}
+				dest : '../<%= pkg.name %>/jquery.<%= pkg.name %>.js',
+				
+			},
 			
-		}
+		},
 		
 	});
 	
-	//--------------------------------------------------------------------
+	/*----------------------------------( TASKS )----------------------------------*/
 	
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	
@@ -184,6 +212,6 @@ module.exports = function(grunt) {
 	
 	//----------------------------------
 	
-	grunt.registerTask('default', ['jshint', 'clean', 'uglify', 'concat']);
+	grunt.registerTask('default', ['jshint', 'clean', 'uglify', 'concat',]);
 	
 };
