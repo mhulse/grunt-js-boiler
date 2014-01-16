@@ -3,7 +3,7 @@
  * Nice Legs... for a human.
  *
  * @author Micky Hulse
- * @link http://hulse.me
+ * @link http://mky.io
  * @docs https://github.com/mhulse/grunt-boiler
  * @copyright Copyright (c) 2014 Micky Hulse.
  * @license Released under the Apache License, Version 2.0.
@@ -64,8 +64,8 @@
 	
 	defaults = {
 		
-		foo : '',
-		bar : '',
+		foo : 'There is no honor',
+		bar : 'in attacking the weak.',
 		// ... add more defaults here.
 		
 		onInit      : $.noop, // Callback on plugin initialization; "this" is the context of the current element.
@@ -122,7 +122,7 @@
 					// Initialize:
 					//----------------------------------
 					
-					settings  = $.extend({}, defaults, options); // Merge defaults and options.
+					settings = $.extend(true, {}, defaults, options, $this.data(NS + 'Options')); // Recursively merge defaults, options and HTML5 `data-` attribute options.
 					
 					//----------------------------------
 					// Namespaced instance data:
@@ -271,6 +271,8 @@
 			
 			data.target
 				.css('color', 'red');
+			
+			console.log(data.settings.foo, data.settings.bar);
 			
 			//----------------------------------
 			// Callback:

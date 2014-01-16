@@ -51,8 +51,8 @@
 	
 	defaults = {
 		
-		foo : '',
-		bar : '',
+		foo : 'There is no honor',
+		bar : 'in attacking the weak.',
 		// ... add more defaults here.
 		
 		onInit      : $.noop, // Callback on plugin initialization; "this" is the context of the current element.
@@ -109,7 +109,7 @@
 					// Initialize:
 					//----------------------------------
 					
-					settings  = $.extend({}, defaults, options); // Merge defaults and options.
+					settings = $.extend(true, {}, defaults, options, $this.data(NS + 'Options')); // Recursively merge defaults, options and HTML5 `data-` attribute options.
 					
 					//----------------------------------
 					// Namespaced instance data:
@@ -258,6 +258,8 @@
 			
 			data.target
 				.css('color', 'red');
+			
+			console.log(data.settings.foo, data.settings.bar);
 			
 			//----------------------------------
 			// Callback:
