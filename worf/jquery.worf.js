@@ -5,10 +5,10 @@
  * @author Micky Hulse
  * @link http://hulse.me
  * @docs https://github.com/mhulse/grunt-boiler
- * @copyright Copyright (c) 2013 Micky Hulse.
+ * @copyright Copyright (c) 2014 Micky Hulse.
  * @license Released under the Apache License, Version 2.0.
  * @version 1.0.0
- * @date 2013/12/23
+ * @date 2014/01/15
  */
 
 //----------------------------------
@@ -46,7 +46,7 @@
 	 * @see rgne.ws/12p2bvl
 	 */
 	
-	var console = window.console || { log : function() {}, warn : function() {} },
+	var console = window.console || { log : $.noop, warn : $.noop },
 	
 	//----------------------------------
 	
