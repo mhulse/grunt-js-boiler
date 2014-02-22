@@ -4,11 +4,11 @@
  *
  * @author Micky Hulse
  * @link http://mky.io
- * @docs https://github.com/mhulse/grunt-boiler
+ * @docs https://github.com/mhulse/grunt-js-boiler
  * @copyright Copyright (c) 2014 Micky Hulse.
  * @license Released under the Apache License, Version 2.0.
  * @version 1.0.0
- * @date 2014/01/15
+ * @date 2014/02/22
  */
 
 //----------------------------------

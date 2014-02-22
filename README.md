@@ -1,8 +1,8 @@
-# Grunt Boiler.
+# Grunt JS Boiler.
 
 <a href="http://gruntjs.com/" title="Built with Grunt"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt" align="right"></a>
 
-**A starting point for [Grunt.js](http://gruntjs.com/) projects/repositories.**
+**A starting point for [Grunt.js](http://gruntjs.com/) Javascript projects/repositories.**
 
 ---
 
@@ -12,7 +12,7 @@
 * Build-generated versions, of the above source file, can be found in `worf/`:
 	* `jquery.worf.js`: Original source file with an added [banner comment](http://gruntjs.com/getting-started#an-example-gruntfile).
 	* `jquery.worf.min.js`: Uglified/minified version with an added "short" banner comment.
-* An example demo file, `index.html`, can be found in `demo/`; this file links to `worf/jquery.worf.min.js` and is meant to illustrate how one might setup a [demo page](http://mhulse.github.io/grunt-boiler/demo/) for their plugin code.
+* An example demo file, `index.html`, can be found in `demo/`; this file links to `worf/jquery.worf.min.js` and is meant to illustrate how one might setup a [demo page](http://mhulse.github.io/grunt-js-boiler/demo/) for their plugin code.
 
 ## Build
 
@@ -23,7 +23,7 @@
 1. Clone repository to your local machine:
 
  ```bash
- $ git clone https://github.com/mhulse/grunt-boiler.git
+ $ git clone https://github.com/mhulse/grunt-js-boiler.git
  ```
 
 1. Install Grunt's command line interface (CLI) globally:
@@ -32,10 +32,10 @@
  $ npm install -g grunt-cli
  ```
 
-1. Next, `cd` to `grunt-boiler/build/` and install project dependencies:
+1. Next, `cd` to `grunt-js-boiler/build/` and install project dependencies:
 
  ```bash
- $ cd grunt-boiler/build/
+ $ cd grunt-js-boiler/build/
  $ npm install
  ```
 
@@ -49,7 +49,7 @@
 
 ## Demo
 
-[![qr code](http://chart.apis.google.com/chart?cht=qr&chl=https://github.com/mhulse/grunt-boiler/&chs=240x240)](http://mhulse.github.io/grunt-boiler/demo/)
+[![qr code](http://chart.apis.google.com/chart?cht=qr&chl=https://github.com/mhulse/grunt-js-boiler/&chs=240x240)](http://mhulse.github.io/grunt-js-boiler/demo/)
 
 ---
 
