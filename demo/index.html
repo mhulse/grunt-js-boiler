@@ -19,22 +19,20 @@
 	<script src="../worf/jquery.worf.min.js"></script>
 	
 	<script>
-		<!--
+		
+		$(document).ready(function() {
 			
-			$(document).ready(function() {
+			$('h1').worf({
 				
-				$('h1').worf({
-					
-					foo         : 'Klingons',
-					bar         : 'never bluff.',
-					onInit      : function() { console.log(this) },
-					onAfterInit : function() { console.log(this) }
-					
-				});
+				foo         : 'Klingons',
+				bar         : 'never bluff.',
+				onInit      : function() { console.log(this) },
+				onAfterInit : function() { console.log(this) }
 				
 			});
 			
-		//-->
+		});
+		
 	</script>
 	
 </body>

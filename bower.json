@@ -1,0 +1,20 @@
+{
+  "name": "worf",
+  "version": "0.1.0",
+  "main": [
+    "./worf/jquery.worf.js"
+  ],
+  "ignore": [
+    "source",
+    "demo",
+    "**/.*",
+    "**/*.md",
+    "**/*.json"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "jquery",
+    "javascript"
+  ]
+}
