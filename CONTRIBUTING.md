@@ -56,6 +56,19 @@ Unless otherwise noted, the code in this repo will be maintained under the [Sema
 
 For more information on Semantic Versioning, please visit http://semver.org.
 
+### Process for bumping a repo’s version:
+
+In general and when applicable, depending on the repositorie’s code and structure, follow these steps to bump a version ...
+
+1. Update `version` key value in `package.json`.
+1. Update `version` key value in `bower.json`.
+1. Run a production build.
+1. Update the [changelog](/README.md#changelog) and [release history](/README.md#release-history) in the [README.md](/README.md) (if copy/pasting, don’t forget to update the date and version numbers).
+1. Push changes to GitHub.
+1. Visit repo’s releases page and click “Draft a new release”.
+1. Type the new version number in the “Tag version” field (e.g., `v1.2.1`).
+1. Click “Publish release”.
+
 ## Coding standards
 
 In general, and for anything not listed below, take care to maintain the existing coding style of the document(s) you’re editing.
@@ -168,6 +181,8 @@ selector {
 1. Don’t “[equality overkill](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/)”.
 1. Avoid [spaghetti code](http://en.wikipedia.org/wiki/Spaghetti_code) and try to have one exit point for methods.
 1. Always use curly braces around `if`s.
+
+**Note:** As a general rule of thumb, **do not link to any `http://raw.github.com/…` scripts hosted on GitHub!** These files are being served as `text/plain` and as such being blocked in Internet Explorer on Windows 7 for instance (because of the wrong MIME type). _Bottom line:_ **GitHub is not a CDN**.
 
 ### Python (`.py`):
 

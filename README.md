@@ -2,9 +2,9 @@
 > A starting point for [Grunt.js](http://gruntjs.com/) **JavaScript** projects/repositories (see also: [Grunt HTML Boiler](https://github.com/mhulse/grunt-html-boiler)).
 
 > * The example source file, `source/files/jquery.worf.js`, is meant to illustrate how one might use [Grunt](http://gruntjs.com/) to build a jQuery plugin.
-> * Build-generated versions, of the aforementioned source file, can be found in `worf/`:
+> * Build-generated versions, of the above example source file, can be found in [`worf/`](worf/):
 > 	* [`jquery.worf.js`](https://raw.github.com/mhulse/grunt-js-boiler/gh-pages/worf/jquery.worf.js): Original source file with an added [banner comment](http://gruntjs.com/getting-started#an-example-gruntfile).
-> 	* [`jquery.worf.min.js`](https://raw.github.com/mhulse/grunt-js-boiler/gh-pages/worf/jquery.worf.min.js): Uglified/minified version with an added "short" banner comment.
+> 	* [`jquery.worf.min.js`](https://raw.github.com/mhulse/grunt-js-boiler/gh-pages/worf/jquery.worf.min.js): Uglified/minified version with an added “short” banner comment.
 > * An example demo file, [`index.html`](https://raw.githubusercontent.com/mhulse/grunt-js-boiler/gh-pages/demo/index.html), can be found in `demo/`; this file links to `worf/jquery.worf.min.js` and is meant to illustrate how one might setup a [demo page](http://mhulse.github.io/grunt-js-boiler/demo/) for their JavaScript/jQuery plugin.
 
 > The following text is boilerplate verbiage, for use in real-world projects/repositories, worded to match this repo’s code and general structure.
@@ -31,14 +31,11 @@ In case you didn’t notice, I really like Star Trek … And yes, normally I’d
 
 ## Demonstration
 
-Click or scan:
-
 | Click or scan: |
-| :-: | :-: |
+| -------------- |
 | [![qr code](http://chart.apis.google.com/chart?cht=qr&chl=https://github.com/mhulse/grunt-js-boiler/&chs=240x240)](http://mhulse.github.io/grunt-js-boiler/demo/) |
-| Build: `$ grunt` or `$ npm run grunt` |
 
-Resize the browser window to see the plugin(s) in action (Firefox 15+ users, check out [Responsive Design View](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_View)).
+**Note:** Resize the demo page‘s browser window to see the plugin(s) in action (Firefox 15+ users, check out [Responsive Design View](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_View)).
 
 **Source:** [`jquery.worf.js`](https://raw.github.com/mhulse/grunt-js-boiler/gh-pages/worf/jquery.worf.js) | [`jquery.worf.min.js`](https://raw.github.com/mhulse/grunt-js-boiler/gh-pages/worf/jquery.worf.min.js)
 
@@ -132,7 +129,7 @@ Option | Description | Default
 
 ## Development
 
-For information on how to build Worf from the source code, visit: [`source/README.md`](https://github.com/mhulse/grunt-js-boiler/blob/gh-pages/source/README.md).
+For information on how to build Worf from the original source code, visit: [`source/README.md`](source/README.md).
 
 ## Links
 
@@ -144,23 +141,11 @@ For information on how to build Worf from the source code, visit: [`source/READM
 
 ### In the wild:
 
-This code was originally developed for [Foo](http://foo.com).
+This code was originally developed for [Foo Bar](http://foobar.com).
 
-## Contributing
+## Other boilerplate …
 
-Please read the [CONTRIBUTING.md](https://github.com/mhulse/grunt-js-boiler/blob/gh-pages/CONTRIBUTING.md).
-
-## Feedback
-
-[Bugs? Constructive feedback? Questions?](https://github.com/mhulse/grunt-js-boiler/issues/new?title=Your%20code%20sucks!&body=Here%27s%20why%3A%20)
-
-## Changelog
-
-* [v0.1.0 milestones](https://github.com/mhulse/grunt-js-boiler/issues?milestone=1&q=is%3Aclosed+sort%3Aupdated-desc)
-
-## [Release history](https://github.com/mhulse/grunt-js-boiler/releases)
-
-* 2012-08-05   [v0.1.0](https://github.com/mhulse/grunt-js-boiler/releases/tag/v0.1.0)   Public release.
+… `README.md` verbiage can be [found here](https://github.com/mhulse/gh-boiler).
 
 ---
 
@@ -174,4 +159,4 @@ Licensed under the Apache License, Version 2.0 (the “License”); you may not 
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
-<img width="20" height="20" align="absmiddle" src="https://github.global.ssl.fastly.net/images/icons/emoji/octocat.png" alt=":octocat:" title=":octocat:" class="emoji">
+<img src="https://github.global.ssl.fastly.net/images/icons/emoji/octocat.png">
