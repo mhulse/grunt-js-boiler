@@ -19,6 +19,8 @@ module.exports = function(grunt) {
 		 *
 		 * @see http://gruntjs.com/getting-started#package.json
 		 * @see https://npmjs.org/doc/json.html
+		 * @see http://package.json.nodejitsu.com/
+		 * @see http://stackoverflow.com/a/10065754/922323
 		 */
 		
 		pkg : grunt.file.readJSON('package.json'),
@@ -31,27 +33,27 @@ module.exports = function(grunt) {
 		 * @see http://gruntjs.com/getting-started#an-example-gruntfile
 		 */
 		
-		meta : {
+		banner : {
 			
-			banner_long : '/**\n' +
-			              ' * <%= pkg.title || pkg.name %>\n' +
-			              '<%= pkg.description ? " * " + pkg.description + "\\n" : "" %>' +
-			              ' *\n' +
-			              '<%= pkg.author.name ? " * @author " + pkg.author.name + "\\n" : "" %>' +
-			              '<%= pkg.author.url ? " * @link " + pkg.author.url + "\\n" : "" %>' +
-			              '<%= pkg.homepage ? " * @docs " + pkg.homepage + "\\n" : "" %>' +
-			              ' * @copyright Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>.\n' +
-			              '<%= pkg.licenses ? " * @license Released under the " + _.pluck(pkg.licenses, "type").join(", ") + ".\\n" : "" %>' +
-			              '<%= pkg.version ? " * @version " + pkg.version + "\\n" : "" %>' +
-			              ' * @date <%= grunt.template.today("yyyy/mm/dd") %>\n' +
-			              ' */\n\n',
+			'short' : '/*! ' +
+			          '<%= pkg.title || pkg.name %>' +
+			          '<%= pkg.version ? " v" + pkg.version : "" %>' +
+			          '<%= pkg.licenses ? " | " + _.pluck(pkg.licenses, "type").join(", ") : "" %>' +
+			          '<%= pkg.homepage ? " | " + pkg.homepage : "" %>' +
+			          ' */',
 			
-			banner_short : '/*! ' +
-			               '<%= pkg.title || pkg.name %>' +
-			               '<%= pkg.version ? " v" + pkg.version : "" %>' +
-			               '<%= pkg.licenses ? " | " + _.pluck(pkg.licenses, "type").join(", ") : "" %>' +
-			               '<%= pkg.homepage ? " | " + pkg.homepage : "" %>' +
-			               ' */'
+			'long' : '/**\n' +
+			         ' * <%= pkg.title || pkg.name %>\n' +
+			         '<%= pkg.description ? " * " + pkg.description + "\\n" : "" %>' +
+			         ' *\n' +
+			         '<%= pkg.author.name ? " * @author " + pkg.author.name + "\\n" : "" %>' +
+			         '<%= pkg.author.url ? " * @link " + pkg.author.url + "\\n" : "" %>' +
+			         '<%= pkg.homepage ? " * @docs " + pkg.homepage + "\\n" : "" %>' +
+			         ' * @copyright Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>.\n' +
+			         '<%= pkg.licenses ? " * @license Released under the " + _.pluck(pkg.licenses, "type").join(", ") + ".\\n" : "" %>' +
+			         '<%= pkg.version ? " * @version " + pkg.version + "\\n" : "" %>' +
+			         ' * @date <%= grunt.template.today("yyyy/mm/dd") %>\n' +
+			         ' */\n\n',
 			
 		},
 		
@@ -66,18 +68,14 @@ module.exports = function(grunt) {
 		
 		watch : {
 			
-			tmpl : {
+			files : [
 				
-				files : [
-					
-					'./src/jquery.<%= pkg.name %>.js',
-					'../demo/**/*',
-					
-				],
+				'./files/jquery.<%= pkg.name %>.js',
+				'../demo/**/*',
 				
-				tasks : ['default'],
-				
-			}
+			],
+			
+			tasks : ['default'],
 			
 		},
 		
@@ -99,10 +97,10 @@ module.exports = function(grunt) {
 				
 			},
 			
-			all : [
+			init : [
 				
 				'./Gruntfile.js',
-				'./src/jquery.<%= pkg.name %>.js',
+				'./files/jquery.<%= pkg.name %>.js',
 				
 			],
 			
@@ -124,7 +122,7 @@ module.exports = function(grunt) {
 				
 			},
 			
-			all : [
+			init : [
 				
 				'../<%= pkg.name %>/**/*',
 				
@@ -147,7 +145,7 @@ module.exports = function(grunt) {
 				
 				options : {
 					
-					banner : '<%= meta.banner_short %>',
+					banner : '<%= banner.short %>',
 					
 				},
 				
@@ -155,7 +153,7 @@ module.exports = function(grunt) {
 					
 					'../<%= pkg.name %>/jquery.<%= pkg.name %>.min.js': [
 						
-						'./src/jquery.<%= pkg.name %>.js',
+						'./files/jquery.<%= pkg.name %>.js',
 						
 					],
 					
@@ -178,7 +176,7 @@ module.exports = function(grunt) {
 			
 			options : {
 				
-				banner : '<%= meta.banner_long %>',
+				banner : '<%= banner.long %>',
 				
 			},
 			
@@ -186,7 +184,7 @@ module.exports = function(grunt) {
 				
 				src : [
 					
-					'./src/jquery.<%= pkg.name %>.js',
+					'./files/jquery.<%= pkg.name %>.js',
 					
 				],
 				

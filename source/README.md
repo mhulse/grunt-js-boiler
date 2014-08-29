@@ -8,7 +8,7 @@ Assuming you already have [Node.js](http://nodejs.org/) (and [npm](https://www.n
 $ npm install -g grunt-cli
 ```
 
-**Note:** This project installs the Grunt [command line interface](https://github.com/gruntjs/grunt-cli), as a local dependency, so you can skip `$ npm install -g grunt-cli` if you use the following `$ npm run` commands.
+**Note:** This project installs the Grunt [command line interface](https://github.com/gruntjs/grunt-cli), as a local dependency, so you can skip the above command if you only use the following `$ npm run` commands.
 
 ## Get the code:
 

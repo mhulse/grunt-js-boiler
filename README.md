@@ -145,7 +145,7 @@ This code was originally developed for [Foo Bar](http://foobar.com).
 
 ## Other boilerplate …
 
-… `README.md` verbiage can be [found here](https://github.com/mhulse/gh-boiler).
+… generic `README.md` verbiage can be [found here](https://github.com/mhulse/gh-boiler).
 
 ---
 
