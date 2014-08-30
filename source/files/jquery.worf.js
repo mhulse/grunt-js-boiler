@@ -59,9 +59,11 @@
 	
 	var defaults = {
 		
+		// Option defaults:
 		classOn : NS + '_on',               // Class applied when plugin initialized.
 		foo     : 'There is no honor',      // A string that gets output to the console.
 		bar     : 'in attacking the weak.', // IBID.
+		wrapper : 'div',                    // HTML element tag name use to wrap target element.
 		
 		// ... add more defaults here.
 		
@@ -203,7 +205,7 @@
 					// Wrapped `<div>`?
 					//----------------------------------
 					
-					if (data.target.parent().is('div')) {
+					if (data.target.parent().is(data.settings.wrapper)) {
 						
 						//----------------------------------
 						// Yup. Remove:
@@ -368,8 +370,12 @@
 	/**
 	 * Wraps target with a `<div>`.
 	 *
+	 * Example (before instantiation):
+	 *
+	 * $.fn.worf.wrapper = function(data) { this.wrap('<section />'); };
+	 *
 	 * @type { function }
-	 * @this { object.jquery }
+	 * @this { object.jquery } Target element.
 	 * @param { object } data Parent data object literal.
 	 * @return { object.jquery } Returns target object(s) for chaining purposes.
 	 */
@@ -377,52 +383,22 @@
 	$.fn[NS].wrapper = function(data) {
 		
 		//----------------------------------
-		// Loop & return each this:
+		// Callback:
 		//----------------------------------
 		
-		return this.each(function() {
-			
-			//----------------------------------
-			// Data?
-			//----------------------------------
-			
-			if (typeof data == 'undefined') {
-				
-				//----------------------------------
-				// Attempt to determine data:
-				//----------------------------------
-				
-				data = this.data(NS);
-				
-			}
-			
-			//----------------------------------
-			// Data?
-			//----------------------------------
-			
-			if (data) {
-				
-				//----------------------------------
-				// Callback:
-				//----------------------------------
-				
-				data.settings.onBeforeWrapper.call(data.target, data);
-				
-				//----------------------------------
-				// Wrap target with div:
-				//----------------------------------
-				
-				data.target.wrap('<div />');
-				
-				//----------------------------------
-				// Callback:
-				//----------------------------------
-				
-				data.settings.onAfterWrapper.call(data.target, data);
-				
-			}
-			
-		});
+		data.settings.onBeforeWrapper.call(data.target, data);
+		
+		//----------------------------------
+		// Wrap target with div:
+		//----------------------------------
+		
+		data.target.wrap('<' + data.settings.wrapper + ' />');
+		
+		//----------------------------------
+		// Callback:
+		//----------------------------------
+		
+		data.settings.onAfterWrapper.call(data.target, data);
 		
 	}; // $.fn[NS].wrapper
 	

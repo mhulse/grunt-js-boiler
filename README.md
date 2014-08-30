@@ -95,10 +95,14 @@ Here’s a complete example with all the available options:
 
 ```js
 $('h1').worf({
-	foo         : 'There is no honor',
-	bar         : 'in attacking the weak.',
-	onInit      : function() { console.log(this) },
-	onAfterInit : function() { console.log(this) }
+	classOn         : 'worf_on',
+	foo             : 'There is no honor',
+	bar             : 'in attacking the weak.',
+	wrapper         : 'div',
+	onInit          : function(data) { console.log(this, data) },
+	onAfterInit     : function(data) { console.log(this, data) },
+	onBeforeWrapper : function(data) { console.log(this, data) },
+	onAfterWrapper  : function(data) { console.log(this, data) }
 });
 ```
 
@@ -109,6 +113,7 @@ Option | Description | Default
 `classOn` | Class applied when plugin initialized. | `'worf_on'`
 `foo` | A string that gets output to the console. | `'There is no honor'`
 `bar` | IBID | `'in attacking the weak.'`
+`wrapper` | HTML element tag name use to wrap target element. | `'div'`
 `onInit` | Callback on plugin initialization; "this" is the context of the current element. | `$.noop`
 `onAfterInit` | Callback after plugin initialization; IBID. | `$.noop`
 `onBeforeWrapper` | Callback before target element wrapped with `<div>`. | `$.noop`

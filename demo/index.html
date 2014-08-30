@@ -11,6 +11,7 @@
 	
 	<style>
 		.worf_on { color: red; }
+		.klingon { color: green; }
 	</style>
 	
 </head>
@@ -26,14 +27,36 @@
 		
 		$(document).ready(function() {
 			
-			$('h1').worf({
+			// Public defaults (before instantiation):
+			$.fn.worf.defaults.classOn = 'klingon'; // Note: `options` will override these public defaults. 
+			
+			$.fn.worf.wrapper = function(data) {
 				
-				foo         : 'Klingons',
-				bar         : 'never bluff.',
-				onInit      : function() { console.log(this) },
-				onAfterInit : function() { console.log(this) }
+				this.wrap('<section />');
+				
+			};
+			
+			
+			$h1 = $('h1');
+			
+			// Instantiate plugin:
+			$h1.worf({
+				
+				// Option defaults:
+				//classOn : 'worf_on',
+				foo     : 'Klingons',
+				bar     : 'never bluff.',
+				wrapper : 'section',
+				
+				// Callbacks:
+				onInit          : function(data) { console.log(this, data) },
+				onAfterInit     : function(data) { console.log(this, data) },
+				onBeforeWrapper : function(data) { console.log(this, data) },
+				onAfterWrapper  : function(data) { console.log(this, data) }
 				
 			});
+			
+			//$h1.worf('destroy');
 			
 		});
 		
