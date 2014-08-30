@@ -106,10 +106,13 @@ $('h1').worf({
 
 Option | Description | Default
 :-- | :-- | :--
+`classOn` | Class applied when plugin initialized. | `'worf_on'`
 `foo` | A string that gets output to the console. | `'There is no honor'`
 `bar` | IBID | `'in attacking the weak.'`
 `onInit` | Callback on plugin initialization; "this" is the context of the current element. | `$.noop`
 `onAfterInit` | Callback after plugin initialization; IBID. | `$.noop`
+`onBeforeWrapper` | Callback before target element wrapped with `<div>`. | `$.noop`
+`onAfterWrapper` | Callback after target element wrapped with `<div>`. | `$.noop`
 
 ### Advanced:
 
@@ -117,9 +120,9 @@ Option | Description | Default
 
  For example:
 
-    ```html
-    <h1 data-worf-options='{ "foo" : "Compared to Klingons,", "bar" : "humans are fragile creatures." }'>Nice Legs... for a human.</h1>
-    ```
+ ```html
+<h1 data-worf-options='{ "foo" : "Compared to Klingons,", "bar" : "humans are fragile creatures." }'>Nice Legs... for a human.</h1>
+```
 
  **Note** the nesting order of the single (`'`) and double (`"`) quotes.
 

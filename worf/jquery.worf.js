@@ -8,8 +8,10 @@
  * @copyright Copyright (c) 2014 Micky Hulse.
  * @license Released under the Apache License, Version 2.0.
  * @version 1.0.0
- * @date 2014/08/28
+ * @date 2014/08/29
  */
+
+/* jshint -W083, unused: vars */
 
 //----------------------------------
 
@@ -24,12 +26,12 @@
 
 //----------------------------------
 
-(function($, window, document, undefined) {
+(function($, window, undefined) {
 	
 	/**
 	 * Function-level strict mode syntax.
 	 *
-	 * @see rgne.ws/XcZgn8
+	 * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 	 */
 	
 	'use strict';
@@ -43,10 +45,10 @@
 	/**
 	 * Javascript console.
 	 *
-	 * @see rgne.ws/12p2bvl
+	 * @see http://www.paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 	 */
 	
-	var console = window.console || { log : $.noop, warn : $.noop },
+	var console = window.console || { log : $.noop, warn : $.noop };
 	
 	//----------------------------------
 	
@@ -54,24 +56,35 @@
 	 * The plugin namespace.
 	 */
 	
-	NS = 'worf',
+	var NS = 'worf';
 	
 	//--------------------------------------------------------------------------
 	//
-	// Defaults and settings:
+	// Defaults/settings:
 	//
 	//--------------------------------------------------------------------------
 	
-	defaults = {
+	/**
+	 * Public defaults.
+	 *
+	 * @type { object }
+	 */
+	
+	var defaults = {
 		
-		foo : 'There is no honor',
-		bar : 'in attacking the weak.',
+		classOn : NS + '_on',               // Class applied when plugin initialized.
+		foo     : 'There is no honor',      // A string that gets output to the console.
+		bar     : 'in attacking the weak.', // IBID.
+		
 		// ... add more defaults here.
 		
-		onInit      : $.noop, // Callback on plugin initialization; "this" is the context of the current element.
-		onAfterInit : $.noop  // Callback after plugin initialization; IBID.
+		// Callbacks:
+		onInit          : $.noop, // Callback on plugin initialization; "this" is the context of the current element.
+		onAfterInit     : $.noop, // Callback after plugin initialization; IBID.
+		onBeforeWrapper : $.noop, // Callback before target element wrapped with `<div>`.
+		onAfterWrapper  : $.noop  // Callback after target element wrapped with `<div>`.
 		
-	}, // defaults
+	}; // defaults
 	
 	//--------------------------------------------------------------------------
 	//
@@ -85,13 +98,13 @@
 	 * @type { object }
 	 */
 	
-	methods = {
+	var methods = {
 		
 		/**
 		 * Init constructor.
 		 *
 		 * @type { function }
-		 * @param { object } opts Options object literal.
+		 * @param { object } options Options object literal.
 		 * @this { object.jquery }
 		 * @return { object.jquery } Returns target object(s) for chaining purposes.
 		 */
@@ -105,12 +118,12 @@
 			return this.each(function() {
 				
 				//----------------------------------
-				// Declare/initialize:
+				// Declare, hoist and initialize:
 				//----------------------------------
 				
-				var $this = $(this),        // Target object.
-				    data  = $this.data(NS), // Namespace instance data.
-				    settings;
+				var $this = $(this);       // Target object.
+				var data = $this.data(NS); // Namespace instance data.
+				var settings;              // Settings object.
 				
 				//----------------------------------
 				// Data?
@@ -122,7 +135,7 @@
 					// Initialize:
 					//----------------------------------
 					
-					settings = $.extend(true, {}, defaults, options, $this.data(NS + 'Options')); // Recursively merge defaults, options and HTML5 `data-` attribute options.
+					settings = $.extend(true, {}, defaults, $.fn[NS].defaults, options, $this.data(NS + 'Options')); // Recursively merge defaults, options and HTML5 `data-` attribute options.
 					
 					//----------------------------------
 					// Namespaced instance data:
@@ -130,9 +143,9 @@
 					
 					$this.data(NS, {
 						
-						init     : false,
-						settings : settings,
-						target   : $this
+						init     : false,    // Plugin initialization flag.
+						settings : settings, // Merged plugin settings.
+						target   : $this     // Target element plugin has been initialized on.
 						
 					});
 					
@@ -162,17 +175,13 @@
 					// Ouch!
 					//----------------------------------
 					
-					console.warn('jQuery.' + NS, 'thinks it\'s already initialized on', this);
-					
-					//return this; // Needed?
+					console.warn('jQuery.%s thinks it\'s already initialized on %o.', NS, this);
 					
 				}
 				
 			});
 			
 		}, // init
-		
-		//----------------------------------
 		
 		/**
 		 * Removes plugin from element.
@@ -191,11 +200,11 @@
 			return this.each(function() {
 				
 				//----------------------------------
-				// Declare/initialize:
+				// Declare, hoist and initialize:
 				//----------------------------------
 				
-				var $this = $(this),
-				    data  = $this.data(NS);
+				var $this = $(this);
+				var data = $this.data(NS);
 				
 				//----------------------------------
 				// Data?
@@ -203,13 +212,43 @@
 				
 				if (data) {
 					
-					// Remove setups here.
+					//----------------------------------
+					// Wrapped `<div>`?
+					//----------------------------------
+					
+					if (data.target.parent().is('div')) {
+						
+						//----------------------------------
+						// Yup. Remove:
+						//----------------------------------
+						
+						data.target.unwrap();
+						
+					}
+					
+					//----------------------------------
+					// Everything else:
+					//----------------------------------
+					
+					data.target // ... hot chaining action -->
 					
 					//----------------------------------
 					// Namespaced instance data:
 					//----------------------------------
 					
-					$this.removeData(NS); // Move along. Nothing to see here.
+					.removeData(NS) // -->
+					
+					//
+					//
+					// Remove other setups here.
+					//
+					//
+					
+					//----------------------------------
+					// Remove class:
+					//----------------------------------
+					
+					.removeClass(data.settings.classOn); // Destroyed!
 					
 				}
 				
@@ -217,7 +256,7 @@
 			
 		} // destroy
 		
-	}, // methods
+	}; // methods
 	
 	//--------------------------------------------------------------------------
 	//
@@ -230,59 +269,72 @@
 	 *
 	 * @private
 	 * @type { function }
+	 * @param { object } data Parent data object literal.
 	 * @this { object.jquery }
 	 */
 	
-	_main = function(data) {
+	var _main = function(data) {
 		
 		//----------------------------------
-		// Data?
+		// Plugin initialization flag:
 		//----------------------------------
 		
-		if (typeof data == 'undefined') {
-			
-			//----------------------------------
-			// Attempt to determine data:
-			//----------------------------------
-			
-			data = this.data(NS);
-			
-		}
+		data.init = true;
 		
 		//----------------------------------
-		// Data?
+		// Callback:
 		//----------------------------------
 		
-		if (data) {
+		data.settings.onInit.call(data.target, data);
+		
+		//----------------------------------
+		// Target exists & contains text?
+		//----------------------------------
+		
+		if (data.target.length && ( ! _isEmpty(data.target))) {
 			
-			//----------------------------------
-			// Yup!
-			//----------------------------------
+			// Do stuff here ... For example, this:
 			
-			data.init = true; // Data initialization flag.
+			data.target.addClass(data.settings.classOn);
 			
-			//----------------------------------
-			// Callback:
-			//----------------------------------
-			
-			data.settings.onInit.call(data.target);
-			
-			// Do stuff here ... For example:
-			
-			data.target
-				.css('color', 'red');
+			// ... or this:
 			
 			console.log(data.settings.foo, data.settings.bar);
 			
+			// or even this:
+			
+			$.fn[NS].wrapper.call(data.target, data);
+			
+		} else {
+			
 			//----------------------------------
-			// Callback:
+			// Problemos:
 			//----------------------------------
 			
-			data.settings.onAfterInit.call(data.target);
+			console.warn('jQuery.%s thinks there\'s a problem with your markup.', NS);
 			
 		}
 		
+		//----------------------------------
+		// Callback:
+		//----------------------------------
+		
+		data.settings.onAfterInit.call(data.target, data);
+		
 	}; // _main
+	
+	/**
+	 * Returns boolean true if element is empty.
+	 *
+	 * @param { object.jquery } $el
+	 * @return { boolean }
+	 */
+	
+	function _isEmpty($el) {
+		
+		return ( ! $.trim($el.html()));
+		
+	} // isEmpty()
 	
 	//--------------------------------------------------------------------------
 	//
@@ -294,7 +346,7 @@
 	 * Boilerplate plugin logic.
 	 *
 	 * @constructor
-	 * @see rgne.ws/OvKpPc
+	 * @see http://learn.jquery.com/plugins/
 	 * @type { function }
 	 * @param { string } method String method identifier.
 	 * @return { method } Calls plugin method with supplied params.
@@ -312,10 +364,100 @@
 			
 		} else {
 			
-			$.error('jQuery.' + NS + ' thinks that ' + method + ' doesn\'t exist');
+			$.error('jQuery.%s thinks that %s doesn\'t exist', NS, method);
 			
 		}
 		
 	}; // $.fn[NS]
 	
-}(jQuery, window, document));
+	//--------------------------------------------------------------------------
+	//
+	// Public access to secondary functions:
+	// @see http://www.learningjquery.com/2007/10/a-plugin-development-pattern/
+	// @see http://stackoverflow.com/questions/11286312/superfish-plugin-fn-extend-how-does-this-code-work
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * Wraps target with a `<div>`.
+	 *
+	 * @type { function }
+	 * @this { object.jquery }
+	 * @param { object } data Parent data object literal.
+	 * @return { object.jquery } Returns target object(s) for chaining purposes.
+	 */
+	
+	$.fn[NS].wrapper = function(data) {
+		
+		//----------------------------------
+		// Loop & return each this:
+		//----------------------------------
+		
+		return this.each(function() {
+			
+			//----------------------------------
+			// Data?
+			//----------------------------------
+			
+			if (typeof data == 'undefined') {
+				
+				//----------------------------------
+				// Attempt to determine data:
+				//----------------------------------
+				
+				data = this.data(NS);
+				
+			}
+			
+			//----------------------------------
+			// Data?
+			//----------------------------------
+			
+			if (data) {
+				
+				//----------------------------------
+				// Callback:
+				//----------------------------------
+				
+				data.settings.onBeforeWrapper.call(data.target, data);
+				
+				//----------------------------------
+				// Wrap target with div:
+				//----------------------------------
+				
+				data.target.wrap('<div />');
+				
+				//----------------------------------
+				// Callback:
+				//----------------------------------
+				
+				data.settings.onAfterWrapper.call(data.target, data);
+				
+			}
+			
+		});
+		
+	}; // $.fn[NS].wrapper
+	
+	//--------------------------------------------------------------------------
+	//
+	// Default settings:
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * Public defaults.
+	 *
+	 * Example (before instantiation):
+	 *
+	 * $.fn.worf.defaults.classOn = 'foo';
+	 *
+	 * @see http://stackoverflow.com/questions/11306375/plugin-authoring-how-to-allow-myplugin-defaults-key-value
+	 *
+	 * @type { object }
+	 */
+	
+	$.fn[NS].defaults = defaults;
+	
+}(jQuery, window)); // Booyah!
+
