@@ -76,5 +76,5 @@ At this point, you can modify any of the files, especially the ones found in the
 
 ## That it?
 
-If you plan on contributing to the repo then please read [CONTRIBUTING.md](CONTRIBUTING.md).
+If you plan on contributing to this repo, please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
